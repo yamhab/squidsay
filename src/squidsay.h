@@ -28,31 +28,24 @@ typedef struct {
 } Lines;
 
 // Decides whether to take input from arguments or stdin, and does that
-void
-input_text(Text text, const int argc, const char *argv[]);
+void input_text(Text text, const int argc, const char *argv[]);
 
 // Takes input from CLI arguments
-int
-input_arg_text(Text text, const int argc, const char *argv[]);
+int input_arg_text(Text text, const int argc, const char *argv[]);
 
 // Takes input from CLI stdin
-int
-input_stdin_text(Text text);
+int input_stdin_text(Text text);
 
 // Draws the text, speech bubble, and Squidward himself
-void
-draw_squid(Text text);
+void draw_squid(Text text);
 
 // Prints the text in a speech bubble
-void
-print_speech(Text text);
+void print_speech(Text text);
 
 // Formats the given text into a list of lines
-void
-parse_lines(Lines *lines, Text text);
+void parse_lines(Lines *lines, Text text);
 
 // Copy string to string, but with every tab replaced with a number of spaces, and returns length
-int
-detab_strcpy(char dest[], const char src[]);
+int detab_strcpy(char dest[], const char src[]);
 
 #endif
