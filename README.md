@@ -23,10 +23,9 @@ string).*
 
 ## Building/Installation
 
-Make sure you have a CC compiler available in `$PATH` called `cc`. First, clone the repo with `git
-clone https://github.com/yamin-shihab/squidsay.git`. Then, just run `make` to build the executable
-into the `build` directory. Run `make install` to... install (into /usr/local/bin). Sorrynotsorry
-pathetic Windoze users.
+Make sure you have a C compiler available in `$PATH` and the Make build system. First, clone the
+repo with `git clone https://github.com/yamhab/squidsay.git`. Then, just run `make` to build the
+executable into the `build/` directory. Sorry Windoze users.
 
 ---
 

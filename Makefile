@@ -1,16 +1,22 @@
-# pls don't make fun of my pathetic makefile
+SRC_DIR := src
+BUILD_DIR := build
 
-CFLAGS := -std=c99 -pedantic -Wall -Wextra -Ofast -o build/squidsay
+SRCS := $(wildcard $(SRC_DIR)/*.c)
+OBJS := $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+BIN := squidsay
 
-all: build
+CFLAGS := -std=c99 -Wall -Wextra -Wpedantic -O2
 
-build:
-	mkdir -p build && $(CC) src/squidsay.c $(CFLAGS)
+$(BUILD_DIR)/$(BIN): $(OBJS)
+	$(CC) $(LDFLAGS) $^ $(LDLIBS) -o $@
 
-install: build
-	cp build/squidsay /usr/local/bin
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(BUILD_DIR)
+	$(CC) -c $(CPPFLAGS) $(CFLAGS) $< -o $@
+
+$(BUILD_DIR):
+	mkdir -p $@
+
+.PHONY: clean
 
 clean:
-	rm -rf build
-
-.PHONY: clean build install
+	$(RM) -r $(BUILD_DIR)
